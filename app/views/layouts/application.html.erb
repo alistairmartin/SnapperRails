@@ -1,140 +1,119 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon"
-      type="image/png"
-      href="/img/snappy.png" />
-      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-      <%= csrf_meta_tags %>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/png" href="/img/snappy.png"/>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
 
-    <title>SNAPPER | Get snappy. </title>
+        <title>SNAPPER | Get snappy.
+        </title>
 
-    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+        <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="/stylesheets/freelancer.css" rel="stylesheet">
-    <link href="/stylesheets/animate.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="/stylesheets/freelancer.css" rel="stylesheet">
+        <link href="/stylesheets/animate.css" rel="stylesheet">
 
+        <!-- Custom Fonts -->
+        <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- Custom Fonts -->
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    </head>
 
-</head>
+    <body id="page-top" class="index">
 
-<body id="page-top" class="index">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand animated rubberBand" href="/">
+                        <i class="fa fa-camera x3" style='color:#ED1C24;' aria-hidden="true"></i>
+                        Snapper</a>
+                </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand animated rubberBand" href="/"><i class="fa fa-camera x3" style='color:#ED1C24;' aria-hidden="true"></i> Snapper</a>
-            </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right" id="navhide">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="page-scroll animated rubberBand">
+                            <a href="/photos/">Upload
+                                <i class="fa fa-arrow-up nav-icons" aria-hidden="true"></i>
+                            </a>
+                        </li>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right" id="navhide">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll animated rubberBand">
-                        <a href="/photos/">Upload <i class="fa fa-arrow-up nav-icons" aria-hidden="true"></i></a>
-                    </li>
+                        <li class="page-scroll animated rubberBand">
+                            <a href="#contact">Albums
+                                <i class="fa fa-book nav-icons" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="page-scroll animated rubberBand"></li>
 
-                    <li class="page-scroll animated rubberBand">
-                        <a href="#contact">Albums <i class="fa fa-book nav-icons" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="page-scroll animated rubberBand">
+                        <li class="page-scroll">
 
-                    </li>
+                            <form action="/session" method="post">
+                                <input type="hidden" value="delete" name="_method">
 
-                    <li class="page-scroll">
+                                <a href="/profile" class="nav-profile animated rubberBand">
+                                    <h1 class="animated rubberBand profile-text">Profile
+                                        <i class="fa fa-user nav-icons" aria-hidden="true"></i>
+                                    </h1>
+                                </a>
+                                <button class="logout-button animated rubberBand">Logout</button>
+                            </form>
 
+                        </div>
 
-                <form action="/session" method="post">
-                    <input type="hidden" value="delete" name="_method">
+                    </div>
 
-                    <a href="/profile" class="nav-profile animated rubberBand"><h1 class="animated rubberBand profile-text">Profile <i class="fa fa-user nav-icons" aria-hidden="true"></i></h1> </a>
-                    <button class="logout-button animated rubberBand">Logout</button>
-                </form>
+                </div>
 
+            </nav>
 
-            </div>
+            <%= yield %>
 
+            <!-- jQuery -->
+            <script src="/javascripts/jquery.js"></script>
 
+            <!-- Bootstrap Core JavaScript -->
+            <script src="/javascripts/bootstrap.min.js"></script>
+            <script src="/javascripts/SNAPPER.js"></script>
 
+            <!-- Plugin JavaScript -->
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+            <script src="/javascripts/classie.js"></script>
+            <script src="/javascripts/cbpAnimatedHeader.js"></script>
 
+            <!-- Contact Form JavaScript -->
+            <script src="/javascripts/jqBootstrapValidation.js"></script>
+            <script src="/javascripts/contact_me.js"></script>
 
-            <!--<button onclick="toggle_div('login-show');" class="login-button"><i class="fa fa-user" aria-hidden="true"></i></button>
+            <!-- Custom Theme JavaScript -->
+            <script src="/javascripts/freelancer.js"></script>
 
-            <div id="login-show">
+        </body>
 
-
-
-
-
-
-
-
-
-                <a href="/profile"><p class="login-links">profile</p></a>
-                <!-- <input class="login" id="login-user" placeholder="Username">
-                <input class="login" id="login-password" placeholder="Password"> -->
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-     <%= yield %>
-
-    <!-- jQuery -->
-    <script src="/javascripts/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/javascripts/bootstrap.min.js"></script>
-    <script src="/javascripts/SNAPPER.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="/javascripts/classie.js"></script>
-    <script src="/javascripts/cbpAnimatedHeader.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="/javascripts/jqBootstrapValidation.js"></script>
-    <script src="/javascripts/contact_me.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="/javascripts/freelancer.js"></script>
-
-</body>
-
-</html>
+    </html>
