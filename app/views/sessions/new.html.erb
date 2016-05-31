@@ -1,0 +1,37 @@
+
+
+
+
+   <%= form_tag '/login', method: 'post' do %>
+
+        <div class="col-sm-12 new-row">
+            <div class="col-sm-offset-1 col-sm-5 new-label">
+                <label for="">name</label>
+            </div>
+            <div class="col-sm-5 new-name">
+                <input class="new-input" type="text" name="name">
+            </div>
+        </div>
+
+        <div class="col-sm-12 new-row">
+            <div class="col-sm-offset-1 col-sm-5 new-label">
+                <label for="">image url</label>
+            </div>
+            <div class="col-sm-5 new-name">
+                <input class="new-input" type="text" name="image_url">
+            </div>
+        </div>
+
+        <div class="col-sm-12 new-row">
+            <div class="col-sm-offset-1 col-sm-5 new-label">
+                <label for="">description</label>
+            </div>
+            <div class="col-sm-5 new-name">
+                <input class="new-input" type="text" name="description">
+            </div>
+        </div>
+
+        <div class="col-sm-12 new-row">
+            <button class="new-button animated rubberBand">Submit</button>
+        </div>
+    <% end%>

@@ -2,9 +2,17 @@ Rails.application.routes.draw do
 
 root 'home#index'
 
- get '/profile' => 'profile#index'
+get '/profile' => 'profile#show'
 
- resources :profiles
+get    '/login'   => 'sessions#new'
+post   '/login'   => 'sessions#create'
+delete '/session'  => 'sessions#destroy'
+
+resources :profiles
+resources :photos
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
