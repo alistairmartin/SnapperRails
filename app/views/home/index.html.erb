@@ -81,11 +81,11 @@
 <section id="portfolio" class=" no-padding-container">
     <div class="container no-padding-container" style="width: 100%;">
 
-        <div class=" index-img-row">
+        <div class="index-img-row">
 
             <% @shuffledphotos_6.each do |photo| %>
 
-            <div class="col-sm-2 portfolio-item no-padding index-height index-images-hover">
+            <div class="col-sm-2 portfolio-item no-padding index-height index-images-hover" data-photo-id="<%= photo['id'] %>">
 
                 <div class="index-like-container">
                     <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
@@ -165,33 +165,27 @@
                     $(this).closest('div').find('.index-like-container').css("display", "none");
                 });
 
+                $('.index-img-row').on('click', '.index-like-container', function (event) {
 
-            });
-        </script>
+                    // make an ajax call to /api/likes
 
-        <script>
+                    var $uiCard = $(event.target).closest('.index-images-hover');
+                    var photoId = $uiCard.data('photo-id');
 
-            $(this).closest('div').find('.index-like-container').on('click', function (event) {
+                    var settings = {
+                        url: '/likes',
+                        data: {
+                            photo_id: photoId
+                        },
+                        method: 'post'
+                    }
 
-                // make an ajax call to /api/likes
+                    var incrementStarCount = function (response) {
+                        console.log(response);
+                        // var $countSpan = $uiCard.find('footer .right'); $countSpan.html(response.like_count);
+                    }
 
-                var $uiCard = $(event.target).closest('.ui-card');
-                var photoId = $uiCard.data('photo-id');
-
-                var settings = {
-                    url: '/likes',
-                    data: {
-                        photo_id: photoId
-                    },
-                    method: 'post'
-                }
-
-                var incrementStarCount = function (response) {
-                    console.log(response);
-                    var $countSpan = $uiCard.find('footer .right');
-                    $countSpan.html(response.like_count);
-                }
-
-                $.ajax(settings).done(incrementStarCount);
+                    $.ajax(settings).done(incrementStarCount);
+                });
             });
         </script>

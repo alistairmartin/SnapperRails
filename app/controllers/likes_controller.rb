@@ -1,18 +1,27 @@
 class LikesController < ApplicationController
 
     def create
-      @Photo = Photo.find(params[:photo_id])
+
+      
+
+      @photo = Photo.find(params[:photo_id])
 
       # binding.pry
 
       @like = Like.new
-      @like.user_id = User.first.id
-      @like.dish_id = @dish.id
-      @like.save
+      @like.user_id = current_user.id
+      @like.photo_id = @photo.id
 
-      data = { like_count: @dish.like_count }
 
-      render json: data, status: 201
+      if @like.save
+
+        # data = { like_count: @photo.like_count }
+        data = { message: 'yo' }
+        render json: data, status: 201
+      else
+        data = { message: 'nope' }
+        render json: data, status: 201
+      end
     end
 
   end

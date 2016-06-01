@@ -1,0 +1,56 @@
+
+
+
+
+   <%= form_tag '/user/new', method: 'post' do %>
+
+   <h1> LOGIN </h1>
+
+        <div class="col-sm-12 new-row">
+            <div class="col-sm-offset-1 col-sm-5 new-label">
+                <label for=""> Full Name</label>
+            </div>
+            <div class="col-sm-5 new-name">
+                <input class="new-input" type="text" name="name">
+            </div>
+        </div>
+
+        <div class="col-sm-12 new-row">
+            <div class="col-sm-offset-1 col-sm-5 new-label">
+                <label for="">Email</label>
+            </div>
+            <div class="col-sm-5 new-name">
+                <input class="new-input" type="text" name="image_url">
+            </div>
+        </div>
+
+        <div class="col-sm-12 new-row">
+            <div class="col-sm-offset-1 col-sm-5 new-label">
+                <label for="">Profile Image</label>
+            </div>
+            <div class="col-sm-5 new-name">
+                <input class="new-input" type="text" name="image_url">
+            </div>
+        </div>
+
+        <div class="col-sm-12 new-row">
+            <div class="col-sm-offset-1 col-sm-5 new-label">
+                <label for="">Profile Description</label>
+            </div>
+            <div class="col-sm-5 new-name">
+                <input class="new-input" type="text" name="description">
+            </div>
+        </div>
+        <div class="col-sm-12 new-row">
+            <div class="col-sm-offset-1 col-sm-5 new-label">
+                <label for="">Password</label>
+            </div>
+            <div class="col-sm-5 new-name">
+                <input class="new-input" type="text" name="password">
+            </div>
+        </div>
+
+        <div class="col-sm-12 new-row">
+            <button class="new-button animated rubberBand">Submit</button>
+        </div>
+    <% end%>

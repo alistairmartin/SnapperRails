@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
   def new
 
 
+
+
+
   end
 
   def create
@@ -10,18 +13,18 @@ class SessionsController < ApplicationController
 
     user = User.find_by(email: params[:email])
 
-    if user && user.authenticate(params[:password])
+    if user && user.authenticate(params[:password_digest])
       # login
 
       # session global hash that rails give you
       session[:user_id] = user.id
 
-      redirect_to '/'
+      redirect_to '/profile'
 
     else
 
       # wrong stuff
-      render :new
+      redirect_to '/login'
     end
 
 

@@ -10,8 +10,8 @@
    User.create(name: 'Ali2', email: "ali2@ali.com", password: "123")
 
    Photo.destroy_all
-   Photo.create(name: 'Boaty', image_url: "http://www.alistairmartinphotography.com/images/img_6004.jpg", description: "123")
-   Photo.create(name: 'Churchy', image_url: "http://www.alistairmartinphotography.com/images/img_2581%20(2).jpg", description: "123")
+   Photo.create(name: 'Boaty', image_url: "http://www.alistairmartinphotography.com/images/img_6004.jpg", description: "123", user: "1")
+   Photo.create(name: 'Churchy', image_url: "http://www.alistairmartinphotography.com/images/img_2581%20(2).jpg", description: "123", user: "2")
 
    u_first = User.first
    p_first = Photo.first

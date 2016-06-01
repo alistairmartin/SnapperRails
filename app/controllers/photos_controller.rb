@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
     photo.name = params[:name]
     photo.image_url = params[:image_url]
     photo.description = params[:description]
-    # photo.user_id = current_user.id
+    photo.user = current_user.id
     photo.save
     if photo.save
       redirect_to '/'

@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
 root 'home#index'
 
-get '/profile' => 'profile#show'
+get '/profile' => 'profiles#show'
 
-get    '/login/new'   => 'sessions#new'#shows the create new user page
+get '/user/new'   => 'users#show'#shows the create new user page
+post '/user/new'   => 'users#create'#shows the create new user page
+
 
 get    '/login'   => 'sessions#show'
 post   '/login'   => 'sessions#create' #creates a new login
@@ -13,6 +15,7 @@ delete '/session'  => 'sessions#destroy' #logout
 resources :profiles
 resources :photos
 resources :likes
+resources :users
 
 
 
