@@ -1,53 +1,64 @@
-
-    <!-- About Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center" style="">
+<!-- About Section -->
+<section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center" style="">
                 <div>
                     <h2 style="display:inline-block;" class="welcome">Welcome!</h2>
-                    <img style="display:inline-block;"  onclick="open_welcome()" src="assets/snappy-01.png" class="img-responsive index-img-fishy-click animated jello" alt="">
-                    <p class="snappy">Click <span style="font-size: 20px;font-weight: 900; color:#ED1C24; font-style: normal; text-shadow: 1px 1px #fff;">Snappy</span> to find out more    <i class="fa fa-long-arrow-right" aria-hidden="true"></i></p>
+                    <img style="display:inline-block;" onclick="open_welcome()" src="assets/snappy-01.png" class="img-responsive index-img-fishy-click animated jello" alt="">
+                    <p class="snappy">Click
+                        <span style="font-size: 20px;font-weight: 900; color:#ED1C24; font-style: normal; text-shadow: 1px 1px #fff;">Snappy</span>
+                        to find out more
+                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    </p>
                 </div>
-                    <hr>
-                    <div class="index-close-container">
-                    <div onclick="open_welcome()" class="index-close text-center"><i class="fa fa-times" aria-hidden="true"></i></div><p class="index-close-p">close</p>
+                <hr>
+                <div class="index-close-container">
+                    <div onclick="open_welcome()" class="index-close text-center">
+                        <i class="fa fa-times" aria-hidden="true"></i>
                     </div>
+                    <p class="index-close-p">close</p>
+                </div>
 
-
-                    <p class="index-intro-p">Snapper, share your fish, images or whatevs.
+                <p class="index-intro-p">Snapper, share your fish, images or whatevs.
                     <br>
                     <br>
-                    Meet <strong>Snappy the Snapper!</strong>
+                    Meet
+                    <strong>Snappy the Snapper!</strong>
                     <br>
                     He will talk you through the deets.
 
-                    </p>
-                </div>
-            </div>
-            <div class="row intro">
-                <div class="col-sm-4">
-                    <img src="assets/snappy-04.png" class="img-responsive intro-img animated wobble" alt="">
-                    <h2><span class="index-img-span">1.</span> Upload</h2>
-                    <p class="index-img-p">Upload your Images</p>
-                </div>
-                <div class="col-sm-4">
-                    <img src="assets/snappy-01.png" class="img-responsive intro-img animated tada" alt="">
-                    <h2><span class="index-img-span">2.</span>  Organise</h2>
-                    <p class="index-img-p">Put images into albums</p>
-                </div>
-                <div class="col-sm-4">
-                    <img src="assets/snappy-03.png" class="img-responsive intro-img animated bounce" alt="">
-                    <h2><span class="index-img-span">3.</span>  Share</h2>
-                    <p class="index-img-p">Share your photos via Social media or email</p>
-                </div>
-
+                </p>
             </div>
         </div>
-    </section>
+        <div class="row intro">
+            <div class="col-sm-4">
+                <img src="assets/snappy-04.png" class="img-responsive intro-img animated wobble" alt="">
+                <h2>
+                    <span class="index-img-span">1.</span>
+                    Upload</h2>
+                <p class="index-img-p">Upload your Images</p>
+            </div>
+            <div class="col-sm-4">
+                <img src="assets/snappy-01.png" class="img-responsive intro-img animated tada" alt="">
+                <h2>
+                    <span class="index-img-span">2.</span>
+                    Organise</h2>
+                <p class="index-img-p">Put images into albums</p>
+            </div>
+            <div class="col-sm-4">
+                <img src="assets/snappy-03.png" class="img-responsive intro-img animated bounce" alt="">
+                <h2>
+                    <span class="index-img-span">3.</span>
+                    Share</h2>
+                <p class="index-img-p">Share your photos via Social media or email</p>
+            </div>
 
+        </div>
+    </div>
+</section>
 
-        <!-- END of Section
+<!-- END of Section
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -66,70 +77,121 @@
 
     -->
 
+<!-- Portfolio Grid Section -->
+<section id="portfolio" class=" no-padding-container">
+    <div class="container no-padding-container" style="width: 100%;">
 
-              <% @shuffledphotos_6.each do |photo| %>
+        <div class=" index-img-row">
+
+            <% @shuffledphotos_6.each do |photo| %>
+
+            <div class="col-sm-2 portfolio-item no-padding index-height index-images-hover">
+
+                <div class="index-like-container">
+                    <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
+                </div>
+                <a href="#portfolioModal<%= photo['id'] %>" class="portfolio-link " data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <p class="index-captions-title"><%= photo['name'] %></p>
+                            <hr class="primary">
+                            <p class="index-captions-description"><%= photo['description'] %></p>
+                            <p class="index-captions-name">
+                                <span style='color:white;'>By Alistair Martin</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="index-img-loop" style="background-image: url('<%= photo['image_url'] %>');"></div>
+
+                </a>
+            </div>
+
+            <!-- Portfolio Modals -->
+            <div class="portfolio-modal modal fade" id="portfolioModal<%= photo['id'] %>" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 20000;">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl"></div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="modal-body">
+
+                                    <div class="index-img-modal-container">
+                                        <div class="index-img-modal">
+                                            <img src="<%= photo['image_url'] %>" alt="">
+                                        </div>
+                                    </div>
+                                    <h2><%= photo['name'] %></h2>
+                                    <hr>
+                                    <p><%= photo['description'] %></p>
+                                    <ul class="list-inline item-details">
+                                        <li>Client:
+                                            <strong>
+                                                <a href="http://startbootstrap.com">Start Bootstrap</a>
+                                            </strong>
+                                        </li>
+                                        <li>Date:
+                                            <strong>
+                                                <a href="http://startbootstrap.com">April 2014</a>
+                                            </strong>
+                                        </li>
+                                        <li>Service:
+                                            <strong>
+                                                <a href="http://startbootstrap.com">Web Development</a>
+                                            </strong>
+                                        </li>
+                                    </ul>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        <i class="fa fa-times"></i>
+                                        Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% end %>
+        </section>
+
+        <script>
+            $(document).ready(function () {
+                $(".index-images-hover").hover(function () {
+                    $(this).closest('div').find('.index-like-container').css("display", "block");
+                }, function () {
+                    $(this).closest('div').find('.index-like-container').css("display", "none");
+                });
 
 
+            });
+        </script>
 
-                  <div class="col-sm-2 portfolio-item no-padding index-height">
-                      <a href="#portfolioModal<%= photo['id'] %>" class="portfolio-link " data-toggle="modal">
-                          <div class="caption">
-                              <div class="caption-content">
-                                  <p class="index-captions-title"><%= photo['name'] %></p>
-                                  <hr class="primary">
-                                  <p class="index-captions-description"><%= photo['description'] %></p>
-                                  <p class="index-captions-name"><span style='color:white;'>By Alistair Martin</span> </p>
-                              </div>
-                          </div>
-                          <div class="index-img-loop" style="background-image: url('<%= photo['image_url'] %>');" > </div>
+        <script>
 
-                      </a>
-                  </div>
+            $(this).closest('div').find('.index-like-container').on('click', function (event) {
 
+                // make an ajax call to /api/likes
 
-      <!-- Portfolio Modals -->
-      <div class="portfolio-modal modal fade" id="portfolioModal<%= photo['id'] %>" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 20000;">
-          <div class="modal-content">
-              <div class="close-modal" data-dismiss="modal">
-                  <div class="lr">
-                      <div class="rl">
-                      </div>
-                  </div>
-              </div>
-              <div class="">
-                  <div class="row">
-                      <div class="col-lg-8 col-lg-offset-2">
-                          <div class="modal-body">
+                var $uiCard = $(event.target).closest('.ui-card');
+                var photoId = $uiCard.data('photo-id');
 
-                              <div class="index-img-modal-container">
-                              <div class="index-img-modal" >
-                              <img src="<%= photo['image_url'] %>" alt="">
-                               </div>
-                              </div>
-                              <h2><%= photo['name'] %></h2>
-                              <hr>
-                              <p><%= photo['description'] %></p>
-                              <ul class="list-inline item-details">
-                                  <li>Client:
-                                      <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                      </strong>
-                                  </li>
-                                  <li>Date:
-                                      <strong><a href="http://startbootstrap.com">April 2014</a>
-                                      </strong>
-                                  </li>
-                                  <li>Service:
-                                      <strong><a href="http://startbootstrap.com">Web Development</a>
-                                      </strong>
-                                  </li>
-                              </ul>
-                              <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+                var settings = {
+                    url: '/likes',
+                    data: {
+                        photo_id: photoId
+                    },
+                    method: 'post'
+                }
 
+                var incrementStarCount = function (response) {
+                    console.log(response);
+                    var $countSpan = $uiCard.find('footer .right');
+                    $countSpan.html(response.like_count);
+                }
 
-               <% end %>
+                $.ajax(settings).done(incrementStarCount);
+            });
+        </script>

@@ -4,12 +4,15 @@ root 'home#index'
 
 get '/profile' => 'profile#show'
 
-get    '/login'   => 'sessions#new'
-post   '/login'   => 'sessions#create'
-delete '/session'  => 'sessions#destroy'
+get    '/login/new'   => 'sessions#new'#shows the create new user page
+
+get    '/login'   => 'sessions#show'
+post   '/login'   => 'sessions#create' #creates a new login
+delete '/session'  => 'sessions#destroy' #logout
 
 resources :profiles
 resources :photos
+resources :likes
 
 
 

@@ -1,2 +1,3 @@
 class Photo < ActiveRecord::Base
-end
+    has_many :likes
+  end

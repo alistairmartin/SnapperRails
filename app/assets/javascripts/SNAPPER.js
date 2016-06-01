@@ -25,7 +25,7 @@ function open_welcome(){
 
 if($('.new-background-img')){
     var bg = $('.new-background-img');
-    var url = bg.data('url');    
+    var url = bg.data('url');
     bg.css('opacity', 0);
     bg.css('background-image', 'url('+url+')');
     bg.css.transition = 'opacity 1s';
@@ -34,7 +34,6 @@ if($('.new-background-img')){
     img.onload = function(){
         bg.css('opacity', 1);
     }
-    img.src = url;   
-    
-}
+    img.src = url;
 
+}

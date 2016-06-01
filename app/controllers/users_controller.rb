@@ -1,8 +1,6 @@
-class SessionsController < ApplicationController
+class UsersController < ApplicationController
 
   def new
-
-
   end
 
   def create
@@ -16,7 +14,7 @@ class SessionsController < ApplicationController
       # session global hash that rails give you
       session[:user_id] = user.id
 
-      redirect_to '/'
+      redirect_to '/somewhere'
 
     else
 
@@ -34,7 +32,5 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/'
-
   end
 end
