@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
     user = User.find_by(email: params[:email])
 
-    if user && user.authenticate(params[:password_digest])
+    if user && user.authenticate(params[:password])
       # login
 
       # session global hash that rails give you
