@@ -16,7 +16,6 @@
         <title>SNAPPER | Get snappy.
         </title>
 
-
         <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -66,26 +65,24 @@
 
                         <li class="page-scroll">
 
-                          <% if logged_in? %>
+                            <% if logged_in? %>
+                            <form action="/session" method="post">
+                                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                                <input type="hidden" value="delete" name="_method">
 
-                          <form action="/session" method="post">
-                              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                              <input type="hidden" value="delete" name="_method">
+                                <a href="/profile" class="nav-profile animated rubberBand">
+                                    <h1 class="animated rubberBand profile-text">Profile
+                                        <i class="fa fa-user nav-icons" aria-hidden="true"></i>
+                                    </h1>
+                                </a>
+                                <button class="logout-button animated rubberBand">Logout</button>
+                            </form>
 
-
-                              <a href="/profile" class="nav-profile animated rubberBand">
-                                  <h1 class="animated rubberBand profile-text">Profile
-                                      <i class="fa fa-user nav-icons" aria-hidden="true"></i>
-                                  </h1>
-                              </a>
-                              <button class="logout-button animated rubberBand">Logout</button>
-                          </form>
-
-                      <% else %>
-                          <a href="/login">
-                              <p class="login-links">Login</p>
-                          </a>
-                          <% end %>
+                        <% else %>
+                            <a href="/login">
+                                <p class="login-links">Login</p>
+                            </a>
+                            <% end %>
 
                         </div>
 
@@ -96,8 +93,6 @@
             </nav>
 
             <%= yield %>
-
-          
 
         </body>
 

@@ -1,104 +1,241 @@
-<h1> profile </h1>
+<h1>
+    profile
+</h1>
+<div>
 
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#Photos" aria-controls="home" role="tab" data-toggle="tab">Photos</a>
+        </li>
+        <li role="presentation">
+            <a href="#Liked" aria-controls="profile" role="tab" data-toggle="tab">Liked</a>
+        </li>
+        <li role="presentation">
+            <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a>
+        </li>
+        <li role="presentation">
+            <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a>
+        </li>
+    </ul>
 
-<!-- Portfolio Grid Section -->
-<section id="portfolio" class=" no-padding-container" style="width: 100%;">
-    <div class="container no-padding-container col-sm-8" style="margin-top: 62px;">
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="Photos">
+            <!-- Portfolio Grid Section -->
+            <section id="portfolio" class=" no-padding-container" style="width: 100%;">
+                <div class="container no-padding-container col-sm-8" style="">
 
-        <div class="row index-img-row">
+                    <div class="row index-img-row">
 
-            <% @user_photos.each do |photo| %>
+                        <% @user_photos.each do |photo| %>
 
-            <div class="col-sm-3 portfolio-item no-padding">
-                <a href="#portfolioModal<%= photo['id'] %>" class="portfolio-link " data-toggle="modal">
-                    <div class="caption">
+                        <div class="col-sm-3 portfolio-item no-padding">
 
-                        <div class="caption-content">
-                            <p class="index-captions-title"><%= photo['name'] %></p>
-                            <hr class="primary">
-                            <p class="index-captions-description"><%= photo['description'] %></p>
-                            <div class="">
-                                <i class="fa fa-trash profile-delete-img" aria-hidden="true"></i>
-                                <i class="fa fa-pencil profile-delete-img" aria-hidden="true"></i>
+                            <div class="profile-modal-btns">
+
+                                <div class="profile-modal-btns-inner" data-toggle="modal" data-target="#myModalDelete<%= photo['id'] %>">
+                                    <i class="fa fa-trash fa-2x profile-delete-img" aria-hidden="true"></i>
+                                </div>
+
+                                <div class="profile-modal-btns-inner" data-toggle="modal" data-target="#myModalEdit<%= photo['id'] %>">
+                                    <i class="fa fa-pencil fa-2x  profile-delete-img" aria-hidden="true"></i>
+                                </div>
 
                             </div>
-                        </div>
-                    </div>
-                    <div class="index-img-loop" style="background-image: url('<%= photo['image_url'] %>');"></div>
 
-                </a>
-            </div>
+                            <div id="myModalDelete<%= photo['id'] %>" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
 
-            <!-- Portfolio Modals -->
-            <div class="portfolio-modal modal fade" id="portfolioModal<%= photo['id'] %>" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 20000;">
-                <div class="modal-content">
-                    <div class="close-modal" data-dismiss="modal">
-                        <div class="lr">
-                            <div class="rl"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
-                                <div class="modal-body">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Delete</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>
+                                                Are you sure you want to Delete?</p>
+                                            <%= form_tag '/', method: 'post' do %>
 
-                                    <div class="index-img-modal-container">
-                                        <div class="index-img-modal">
-                                            <img src="<%= photo['image_url'] %>" alt="">
+                                            <button class="col-xs-offset-5 col-xs-2 text-center red-background">
+                                                <i class="fa fa-trash fa-2x profile-delete-img text-center" aria-hidden="true"></i>
+                                            </button>
+                                            <% end %>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default col-xs-12" data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
-                                    <h2><%= photo['name'] %></h2>
-                                    <hr>
-                                    <p><%= photo['description'] %></p>
-                                    <ul class="list-inline item-details">
 
-                                        <li>User:
-                                            <strong>
-                                                <a href="http://startbootstrap.com"><%= @user["name"] %></a>
-                                            </strong>
-                                        </li>
+                                </div>
+                            </div>
+                            <div id="myModalEdit<%= photo['id'] %>" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
 
-                                    </ul>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        <i class="fa fa-times"></i>
-                                        Close</button>
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Modal Header</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Some text in the modal.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <a href="#portfolioModal<%= photo['id'] %>" class="portfolio-link " data-toggle="modal">
+                                <div class="caption">
+
+                                    <div class="caption-content">
+                                        <p class="index-captions-title"><%= photo['name'] %></p>
+                                        <hr class="primary">
+                                        <p class="index-captions-description"><%= photo['description'] %></p>
+                                    </div>
+                                </div>
+                                <div class="index-img-loop" style="background-image: url('<%= photo['image_url'] %>');"></div>
+
+                            </a>
+                        </div>
+
+                        <!-- Portfolio Modals -->
+                        <div class="portfolio-modal modal fade" id="portfolioModal<%= photo['id'] %>" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 20000;">
+                            <div class="modal-content">
+                                <div class="close-modal" data-dismiss="modal">
+                                    <div class="lr">
+                                        <div class="rl"></div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-lg-offset-2">
+                                            <div class="modal-body">
+
+                                                <div class="index-img-modal-container">
+                                                    <div class="index-img-modal">
+                                                        <img src="<%= photo['image_url'] %>" alt="">
+                                                    </div>
+                                                </div>
+                                                <h2><%= photo['name'] %></h2>
+                                                <hr>
+                                                <p><%= photo['description'] %></p>
+                                                <ul class="list-inline item-details">
+
+                                                    <li>User:
+                                                        <strong>
+                                                            <a href="http://startbootstrap.com"><%= @user["name"] %></a>
+                                                        </strong>
+                                                    </li>
+
+                                                </ul>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    <i class="fa fa-times"></i>
+                                                    Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <% end %>
+                        <% end %>
 
-        </div>
-
-        <div class="profile-row-right col-sm-4 text-center">
-            <hr>
-            <button class="profile-button">
-                Edit
-            </button>
-            <hr>
-
-            <div class="profile-img text-center animated rubberBand">
-                <img class="img-responsive text-center profile-img-responsive " src="<%= @user[" user_img"] %>">
-            </div>
-            <h4>
-                <%= @user["name"] %></h4>
-            <p class="profile-email"><%= @user["email"] %></p>
-            <div>
-                <hr>
-                <p><img style="display:inline-block; width:50px; height:50px; margin-top: 2px;" onclick="open_welcome()" src="img/snappy-01.png" class="img-responsive index-img-fishy-click animated rubberBand" alt=""><br>
-                    <i class="fa fa-chevron-up" aria-hidden="true" style="color:green"></i>
-                    <strong>416</strong>
-                    Snaps!<p></div>
-                    <hr>
-                    <div >
-                        <p class="profile-description-top">
-                            <strong>Description</strong>
-                        </p>
-                        <p class="profile-description-bottom">Photos from around the world! Travel and adventure. Hiking in the wilderness.</p>
                     </div>
 
+                    <div class="profile-row-right col-sm-4 text-center">
+                        <hr>
+                        <button class="profile-button">
+                            Edit
+                        </button>
+                        <hr>
+
+                        <div class="profile-img text-center animated rubberBand">
+                            <img class="img-responsive text-center profile-img-responsive " src="<%= @user[" user_img"] %>">
+                        </div>
+                        <h4>
+                            <%= @user["name"] %></h4>
+                        <p class="profile-email"><%= @user["email"] %></p>
+                        <div>
+                            <hr>
+                            <p><img style="display:inline-block; width:50px; height:50px; margin-top: 2px;" onclick="open_welcome()" src="assets/snappy-01.png" class="img-responsive index-img-fishy-click animated rubberBand" alt=""><br>
+                                <i class="fa fa-chevron-up" aria-hidden="true" style="color:green"></i>
+                                <strong>416</strong>
+                                Snaps!<p></div>
+                                <hr>
+                                <div >
+                                    <p class="profile-description-top">
+                                        <strong>Description</strong>
+                                    </p>
+                                    <p class="profile-description-bottom">Photos from around the world! Travel and adventure. Hiking in the wilderness.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
                 </div>
-            </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="Liked">
+                    <!-- Portfolio Grid Section -->
+                    <section id="portfolio" class=" no-padding-container" style="width: 100%;">
+                        <div class="container no-padding-container col-sm-8" style=""></div>
+
+                        <div class="profile-row-right col-sm-4 text-center">
+                            <hr>
+                            <button class="profile-button">
+                                Edit
+                            </button>
+                            <hr>
+
+                            <div class="profile-img text-center animated rubberBand">
+                                <img class="img-responsive text-center profile-img-responsive " src="<%= @user[" user_img"] %>">
+                            </div>
+                            <h4>
+                                <%= @user["name"] %></h4>
+                            <p class="profile-email"><%= @user["email"] %></p>
+                            <div>
+                                <hr>
+                                <p><img style="display:inline-block; width:50px; height:50px; margin-top: 2px;" onclick="open_welcome()" src="assets/snappy-01.png" class="img-responsive index-img-fishy-click animated rubberBand" alt=""><br>
+                                    <i class="fa fa-chevron-up" aria-hidden="true" style="color:green"></i>
+                                    <strong>416</strong>
+                                    Snaps!<p></div>
+                                    <hr>
+                                    <div >
+                                        <p class="profile-description-top">
+                                            <strong>Description</strong>
+                                        </p>
+                                        <p class="profile-description-bottom">Photos from around the world! Travel and adventure. Hiking in the wilderness.</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="messages">...</div>
+                    <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
+                </div>
+
+                <script>
+
+                    $(document).ready(function () {
+                        $(".portfolio-item").hover(function () {
+                            $(this).closest('div').find('.profile-modal-btns').css("display", "block");
+                        }, function () {
+                            $(this).closest('div').find('.profile-modal-btns').css("display", "none");
+                        });
+                        $('#myTabs a').click(function (e) {
+                            e.preventDefault()
+                            $(this).tab('show')
+                        })
+
+                    });
+                </script>
+                <!-- Trigger the modal with a button -->
+
+                <!-- Modal -->

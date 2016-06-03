@@ -86,10 +86,27 @@
             <% @shuffledphotos_6.each do |photo| %>
 
             <div class="col-sm-2 portfolio-item no-padding index-height index-images-hover" data-photo-id="<%= photo['id'] %>">
+                <% if logged_in? %>
+                  <% if photo.liked_by?(current_user) %>
+                  <div class="index-like-container">
+                      <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
+                  </div>
 
-                <div class="index-like-container">
+                  <% else %>
+                  <div class="index-like-container">
+                      <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
+                  </div>
+                  <% end %>
+              <% else %>
+
+                <div class="index-like-container-notlogged-in">
+                    <!-- <a href="/login"> -->
                     <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
+                    <!-- </a> -->
                 </div>
+
+                <% end %>
+
                 <a href="#portfolioModal<%= photo['id'] %>" class="portfolio-link " data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
