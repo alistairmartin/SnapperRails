@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
     @user = current_user
 
 
-    @user_photos = Photo.where(photo_user: current_user)
+    @user_photos = Photo.where(user: current_user)
 
 
 

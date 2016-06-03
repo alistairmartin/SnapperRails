@@ -3,10 +3,37 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
+.index-like-container-notlogged-in{
+  position: absolute;
+  bottom: 3px;
+  z-index: 1000;
+  color: red;
+  display: none;
+  transition: all 2s ease;
+  bottom: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.profile-modal-btns{
+  position: absolute;
+  bottom: 3px;
+  z-index: 1000;
+  color: red;
+  display: none;
+  transition: all 2s ease;
+  bottom: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.profile-modal-btns-inner{
+  display: inline-block;
+}
 
 .index-like-container:hover {
     display: block;
-    transition: all 1s ease;
+
 }
 .index-like-container {
     position: absolute;
@@ -14,14 +41,10 @@
     z-index: 1000;
     color: red;
     display: none;
-    transition: all 1s ease;
-
-
-
+    transition: all 2s ease-in-out;
     bottom: 3%;
     left: 50%;
-
-   transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 .profile-text {
     font-size: 15px;
